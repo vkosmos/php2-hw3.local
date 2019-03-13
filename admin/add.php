@@ -12,4 +12,5 @@ if ('POST' === $_SERVER['REQUEST_METHOD']){
     header('Location: ' . '/admin/');
 }
 
-include __DIR__ . '/../templates/admin/add.php';
+$view = new \App\View();
+$view->display( __DIR__ . '/../templates/admin/add.php' );

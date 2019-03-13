@@ -18,7 +18,7 @@
 
 <ul class="news-list">
 
-    <?php foreach($data as $item): ?>
+    <?php foreach($this->news as $item): ?>
         <li class="news-list__item">
             <p class="news-list__text">
                 <b><?=$item->title;?></b>

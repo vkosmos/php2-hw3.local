@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>HW1. Новость подробно</title>
+    <title>Новость подробно</title>
 </head>
 <body>
 <h1>Новость подробно</h1>
@@ -16,24 +16,21 @@
     <a class="button" href="index.php">Вернуться к списку новостей</a>
 </p>
 
-
 <?php
-    if (false === $article){
+    if (false === $this->article){
 ?>
         <p>
             Такой новости не существует.
         </p>
-        <a href="index.php">Вернуться к списку новостей</a>
 <?php
         die;
     }
 ?>
 
     <article class="article">
-        <h2><?=$article->title;?></h2>
-        <p><?=$article->content;?></p>
+        <h2><?=$this->article->title;?></h2>
+        <p><?=$this->article->content;?></p>
     </article>
-
 
 </body>
 </html>

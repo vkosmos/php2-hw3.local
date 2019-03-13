@@ -14,7 +14,7 @@ if ('POST' === $_SERVER['REQUEST_METHOD']){
     header('Location: ' . '/admin/');
 }
 
-$id = $_GET['id'];
-$article = Article::findById($id);
-
-include __DIR__ . '/../templates/admin/edit.php';
+$id = (int)$_GET['id'];
+$view = new \App\View();
+$view->article = Article::findById($id);
+$view->display( __DIR__ . '/../templates/admin/edit.php' );

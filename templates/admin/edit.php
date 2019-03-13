@@ -15,18 +15,24 @@
 
 <p><a class="button" href="/admin/">На главную админки</a></p>
 
+<?php
+    if (false === $this->article){
+        die('Новость не найдена.');
+    }
+?>
+
 <form class="form" action="/admin/edit.php" method="post">
-    <input name="id" type="hidden" value="<?=$article->id?>">
+    <input name="id" type="hidden" value="<?=$this->article->id?>">
     <p>
         <label>
             Название новости<br>
-            <input class="form__input" type="text" name="title" placeholder="Название" value="<?=$article->title?>">
+            <input class="form__input" type="text" name="title" placeholder="Название" value="<?=$this->article->title?>">
         </label>
     </p>
     <p>
         <label>
             Текст новости<br>
-            <textarea class="form__textarea" name="content" cols="40" rows="5" placeholder="Текст"><?=$article->content?></textarea>
+            <textarea class="form__textarea" name="content" cols="40" rows="5" placeholder="Текст"><?=$this->article->content?></textarea>
         </label>
     </p>
 

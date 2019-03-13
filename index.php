@@ -4,5 +4,6 @@ use App\Models\Article;
 
 require __DIR__ . '/App/autoload.php';
 
-$data = Article::findN(3);
-include __DIR__ . '/templates/index.php';
+$view = new \App\View();
+$view->news = Article::findN(3);
+$view->display(__DIR__ . '/templates/index.php');

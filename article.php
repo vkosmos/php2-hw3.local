@@ -4,11 +4,7 @@ use App\Models\Article;
 
 require __DIR__ . '/App/autoload.php';
 
-$article = null;
-
-if (isset($_GET['id'])){
-    $id = $_GET['id'];
-    $article = Article::findById($id);
-}
-
-include __DIR__ . '/templates/article.php';
+$view = new \App\View();
+$id = (int)$_GET['id'];
+$view->article = Article::findById($id);
+$view->display( __DIR__ . '/templates/article.php' );
