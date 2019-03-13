@@ -28,8 +28,9 @@
 ?>
 
     <article class="article">
-        <h2><?=$this->article->title;?></h2>
-        <p><?=$this->article->content;?></p>
+        <h2><?= $this->article->title; ?></h2>
+        <p><?= $this->article->content; ?></p>
+        <p><?= $item->author->name ?? 'редакционная статья'; ?></p>
     </article>
 
 </body>

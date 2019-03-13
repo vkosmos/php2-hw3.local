@@ -35,6 +35,27 @@
             <textarea class="form__textarea" name="content" cols="40" rows="5" placeholder="Текст"><?=$this->article->content?></textarea>
         </label>
     </p>
+    <p>
+        <label>
+            Автор<br>
+
+            <select name="author">
+                <option value="0">Редакционная статья</option>
+
+                <?php foreach($this->authors as $author): ?>
+                    <option value="<?=$author->id;?>"
+                        <?php
+                        if ($author->id === $this->article->author->id){
+                            echo "selected";
+                        }
+                        ?>
+                    ><?=$author->name;?></option>
+                <?php endforeach; ?>
+
+            </select>
+
+        </label>
+    </p>
 
     <button class="button" type="submit">Изменить</button>
 

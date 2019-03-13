@@ -26,6 +26,9 @@
             <p class="news-list__text">
                 <?=$item->content;?>
             </p>
+            <p class="news-list__text">
+                Автор: <?= $item->author->name ?? 'редакционная статья'; ?>
+            </p>
             <p class="news-list__links">
                 <a class="button" href="/admin/edit.php?id=<?=$item->id?>">Редактировать</a>
                 <a class="button" href="/admin/delete.php?id=<?=$item->id?>">Удалить</a>

@@ -28,6 +28,21 @@
             <textarea class="form__textarea" name="content" cols="40" rows="5" placeholder="Текст"></textarea>
         </label>
     </p>
+    <p>
+        <label>
+            Автор<br>
+
+            <select name="author">
+                <option value="0">Редакционная статья</option>
+
+                <?php foreach($this->authors as $author): ?>
+                <option value="<?=$author->id;?>"><?=$author->name;?></option>
+                <?php endforeach; ?>
+
+            </select>
+
+        </label>
+    </p>
 
     <button class="button" type="submit">Добавить</button>
 

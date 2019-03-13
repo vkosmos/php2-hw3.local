@@ -21,6 +21,9 @@
                 <p class="news-list__text">
                     <b><?=$item->title;?></b>
                 </p>
+                <p class="news-list__text">
+                    Автор:  <?= $item->author->name ?? 'редакционная статья'; ?>
+                </p>
                 <p class="news-list__links">
                     <a class="button" href="/article.php?id=<?=$item->id?>">Подробнее</a>
                 </p>

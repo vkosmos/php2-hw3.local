@@ -62,19 +62,25 @@ abstract class Model
         $fields = get_object_vars($this);
         $data = [];
         $names = [];
-        
+
         foreach ($fields as $key => $value){
             if ('id' == $key){
                 $data[':id'] = $value;
                 continue;
             }
-            $names[] = $key . '=' . '\'' . $value . '\'';
+
+            if (null === $value){
+                $names[] = $key . '=null';
+            }
+            else{
+                $names[] = $key . '=' . '\'' . $value . '\'';
+            }
         }
 
         $sql = 'UPDATE ' .
             static::TABLE . '
             SET ' .
-            implode(',', $names) .
+            implode(', ', $names) .
             ' WHERE 
             id = :id';
 

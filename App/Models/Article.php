@@ -11,6 +11,7 @@ class Article extends Model
 
     public $title;
     public $content;
+    public $author_id;
 
     public static function findN(int $number)
     {
@@ -27,4 +28,16 @@ class Article extends Model
 
         return $data;
     }
+
+    public function __get($name)
+    {
+        if ($name == 'author'){
+            if (!empty($this->author_id)){
+                return Author::findById($this->author_id);
+            }
+        }
+        return null;
+    }
+
+
 }
