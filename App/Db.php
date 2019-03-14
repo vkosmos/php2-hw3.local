@@ -4,6 +4,10 @@ namespace App;
 
 use App\Config;
 
+/**
+ * Class Db
+ * @package App
+ */
 class Db
 {
     protected $dbh;
@@ -22,7 +26,14 @@ class Db
         $this->dbh->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
     }
 
-    public function query($sql, $params = [], $class = null)
+    /**
+     * Выполняет запрос к БД, возвращает полученные данные в виде массивы объектов
+     * @param $sql sql-запрос к БД
+     * @param array $params массив подстановок
+     * @param string|null $class имя класса, массив объектов которого должен быть возвращен
+     * @return array
+     */
+    public function query(string $sql, $params = [], $class = null)
     {
         $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
@@ -36,12 +47,22 @@ class Db
         return $sth->fetchAll();
     }
 
-    public function execute($sql, $params = [])
+    /**
+     * Выполняет запрос к БД, не связанный с получением данных
+     * @param $sql sql-запрос к БД
+     * @param array $params массив подстановок
+     * @return bool
+     */
+    public function execute(string $sql, $params = [])
     {
         $sth = $this->dbh->prepare($sql);
         return $sth->execute($params);
     }
 
+    /**
+     * Возвращает последний вставленный id
+     * @return string
+     */
     public function lastInsertId()
     {
         return $this->dbh->lastInsertId();

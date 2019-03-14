@@ -1,3 +1,8 @@
+<?php
+/**
+ * @var \App\View $this
+ */
+?>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -30,7 +35,9 @@
     <article class="article">
         <h2><?= $this->article->title; ?></h2>
         <p><?= $this->article->content; ?></p>
-        <p><?= $item->author->name ?? 'редакционная статья'; ?></p>
+        <p>
+            Автор: <?= $this->article->author->name ?? 'редакционная статья'; ?>
+        </p>
     </article>
 
 </body>
