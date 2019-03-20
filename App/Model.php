@@ -34,7 +34,7 @@ abstract class Model
         $params = [':id' => $id];
         $data = $db->query($sql, $params, static::class);
 
-        return (!empty($data)) ? $data[0] : false;
+        return (!empty($data) && is_array($data)) ? $data[0] : false;
     }
 
     /**
