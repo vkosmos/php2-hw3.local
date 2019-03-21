@@ -8,10 +8,13 @@ use App\Models\Author;
 if ('POST' === $_SERVER['REQUEST_METHOD']){
 
     $article = Article::findById($_POST['id']);
-    $article->title = $_POST['title'];
-    $article->content = $_POST['content'];
-    $article->author_id = (0 === (int)$_POST['author']) ? null : $_POST['author'];
-    $article->save();
+
+    if ($article){
+        $article->title = $_POST['title'];
+        $article->content = $_POST['content'];
+        $article->author_id = (0 === (int)$_POST['author']) ? null : $_POST['author'];
+        $article->save();
+    }
 
     header('Location: ' . '/admin/');
 }

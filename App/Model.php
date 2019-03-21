@@ -88,8 +88,7 @@ abstract class Model
 
             if (null === $value){
                 $names[] = $key . '=null';
-            }
-            else{
+            }else{
                 $names[] = $key . '=' . '\'' . $value . '\'';
             }
         }
@@ -125,8 +124,7 @@ abstract class Model
     {
         if (isset($this->id)){
             $this->update();
-        }
-        else{
+        }else{
             $this->insert();
         }
     }

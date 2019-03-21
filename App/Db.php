@@ -27,7 +27,7 @@ class Db
     }
 
     /**
-     * Выполняет запрос к БД, возвращает полученные данные в виде массивы объектов
+     * Выполняет запрос к БД, возвращает полученные данные в виде массива
      * @param $sql sql-запрос к БД
      * @param array $params массив подстановок
      * @param string|null $class имя класса, массив объектов которого должен быть возвращен
@@ -40,8 +40,7 @@ class Db
 
         if (null === $class){
             $sth->setFetchMode(\PDO::FETCH_ASSOC);
-        }
-        else {
+        }else{
             $sth->setFetchMode(\PDO::FETCH_CLASS, $class);
         }
         return $sth->fetchAll();

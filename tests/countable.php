@@ -13,4 +13,3 @@ $view->abort = 'Да хватит уже!';
 $view->news = \App\Models\Article::findN(4);
 
 echo 'Считаем объект <b>view</b>: <b>' . count($view) . '</b>';
-
