@@ -17,9 +17,9 @@ class Db
         $config = Config::getInstance();
 
         $this->dbh = new \PDO(
-            'mysql:host=' . $config->getData()['db']['host'] . ';dbname=' . $config->getData()['db']['dbname'],
-            $config->getData()['db']['user'],
-            $config->getData()['db']['password']
+            'mysql:host=' . $config->data['db']['host'] . ';dbname=' . $config->data['db']['dbname'],
+            $config->data['db']['user'],
+            $config->data['db']['password']
         );
 
         //Данная строчка внесена, чтобы справиться с ошибкой PDO при подстановке параметров в запросы с LIMIT
@@ -28,6 +28,7 @@ class Db
 
     /**
      * Выполняет запрос к БД, возвращает полученные данные в виде массива
+     * объектов переданного класса, либо в виде ассоциативного массива, если имя класса не было передано.
      * @param $sql sql-запрос к БД
      * @param array $params массив подстановок
      * @param string|null $class имя класса, массив объектов которого должен быть возвращен
